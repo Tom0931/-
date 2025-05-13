@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>数字转盘 1-999</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f2f2;
+      padding-top: 50px;
+    }
+    #result {
+      font-size: 60px;
+      margin: 20px;
+      color: #333;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>数字转盘（1 - 999）</h1>
+  <div id="result">点击按钮开始</div>
+  <button onclick="spin()">转动转盘</button>
+
+  <script>
+    function spin() {
+      const resultDiv = document.getElementById('result');
+      let count = 0;
+      let spinInterval = setInterval(() => {
+        let num = Math.floor(Math.random() * 999) + 1;
+        resultDiv.innerText = num;
+        count++;
+        if (count > 30) { // 结束动画
+          clearInterval(spinInterval);
+        }
+      }, 50);
+    }
+  </script>
+
+</body>
+</html>
